@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Les graphes &#8212; NSI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bc08d2ed" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=d99ca74e"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/cours';</script>
+    <script src="../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Exercice sur les graphes" href="exercice.html" />
+    <link rel="prev" title="Représentation des graphes" href="activite.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Haut de page
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">NSI</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activite.html">Représentation des graphes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Les graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice.html">Exercice sur les graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice_python.html">Exercice en Python</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/cours.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Les graphes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-dadjacence">Matrice d’adjacence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-adjacence">Liste d’adjacence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-dun-graphe">Interface d’un graphe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-en-python">Implémentation en Python</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="les-graphes">
+<h1>Les graphes<a class="headerlink" href="#les-graphes" title="Link to this heading">#</a></h1>
+<div class="definition admonition">
+<p class="admonition-title">Définitions</p>
+<ol class="arabic simple">
+<li><p>Un <strong>graphe</strong> <code class="docutils literal notranslate"><span class="pre">G=(S,A)</span></code> est un ensemble <code class="docutils literal notranslate"><span class="pre">S</span></code> de <strong>sommets</strong> reliés par l’ensemble <code class="docutils literal notranslate"><span class="pre">A</span></code> des <strong>arcs</strong> ou des <strong>arêtes</strong>.</p></li>
+<li><p>Deux sommets reliés par un arc sont <strong>adjacents</strong>.</p></li>
+<li><p>Lorsque les arcs sont munis d’un <strong>sens</strong> de parcours, on dit que le graphe est <strong>orienté</strong>.</p></li>
+<li><p>Lorsque les arcs sont munis d’un <strong>poids</strong> (valeur numérique), on dit que le graphe est <strong>pondéré</strong>.</p></li>
+</ol>
+</div>
+<p>La figure ci-dessous représente un <strong>graphe</strong> <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+<figure class="align-center">
+<img alt="../_images/graphe_2.svg" src="../_images/graphe_2.svg" /></figure>
+<p>Ce graphe contient 5 sommets <code class="docutils literal notranslate"><span class="pre">A,</span> <span class="pre">B,</span> <span class="pre">C,</span> <span class="pre">D,</span> <span class="pre">E</span></code> reliés par 6 arcs ou arêtes.</p>
+<p>Le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> est relié aux sommets <code class="docutils literal notranslate"><span class="pre">B</span></code> et <code class="docutils literal notranslate"><span class="pre">C</span></code>. Le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> est donc <strong>adjacent</strong> aux sommets <code class="docutils literal notranslate"><span class="pre">B</span></code> et
+<code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+<p>Un autre exemple de graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> qui est <strong>orienté</strong>.</p>
+<figure class="align-center">
+<img alt="../_images/graphe_3.svg" src="../_images/graphe_3.svg" /></figure>
+<p>Les arêtes ou arcs ont un sens de parcours entre les sommets symbolisés par des flèches.</p>
+<section id="matrice-dadjacence">
+<h2>Matrice d’adjacence<a class="headerlink" href="#matrice-dadjacence" title="Link to this heading">#</a></h2>
+<div class="definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Soit <code class="docutils literal notranslate"><span class="pre">G</span></code> un graphe possédant <code class="docutils literal notranslate"><span class="pre">n</span></code> sommets. La <strong>matrice d’adjacence</strong> d’un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> est un tableau carré de dimension <code class="docutils literal notranslate"><span class="pre">n</span></code> où:</p>
+<ul class="simple">
+<li><p>Chaque ligne et chaque colonne représente un sommet;</p></li>
+<li><p>Si deux sommets sont adjacents, la valeur à l’intersection de la ligne et de la colonne représentant les 2 sommets est égale à 1;</p></li>
+<li><p>Lorsque les sommets ne sont pas adjacents, la valeur à l’intersection de la ligne et de la colonne représentant les 2 sommets est égale à 0;</p></li>
+<li><p>La matrice est notée entre 2 parenthèses englobant toutes les lignes.</p></li>
+</ul>
+<p>Si le graphe n’est pas orienté, la matrice est symétrique par rapport à sa diagonale.</p>
+</div>
+<p>On remprend le premier graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> donné en exemple:</p>
+<figure class="align-center">
+<img alt="../_images/graphe_2.svg" src="../_images/graphe_2.svg" /></figure>
+<p>Ce graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> admet la matrice d’adjacence suivante:</p>
+<figure class="align-center">
+<img alt="../_images/matrice_graphe_2.png" src="../_images/matrice_graphe_2.png" />
+</figure>
+<ul class="simple">
+<li><p>La matrice est de dimension <span class="math notranslate nohighlight">\(5\)</span> puisque le graphe a 5 sommets;</p></li>
+<li><p>La première ligne et la première colonne de la matrice représente le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code>;</p></li>
+<li><p>La seconde ligne et la seconde colonne de la matrice représente le sommet <code class="docutils literal notranslate"><span class="pre">B</span></code>;</p></li>
+<li><p>Les sommets <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code> sont adjacents: la valeur à l’intersection de la première ligne et de la deuxième colonne est égale à 1.</p></li>
+<li><p>Le graphe n’est pas orienté donc la matrice est symétrique par rapport à la diagonale. En conséquence, la valeur à l’intersection de la deuxième ligne et de la première colonne est égale à 1.</p></li>
+</ul>
+</section>
+<section id="liste-d-adjacence">
+<h2>Liste d’adjacence<a class="headerlink" href="#liste-d-adjacence" title="Link to this heading">#</a></h2>
+<div class="definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> peut être décrit par l’ensemble de ses sommets adjacents. Pour chacun de ces sommets, on lui associe la liste des sommets qui lui sont adjacents.</p>
+</div>
+<p>Pour le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> redonné ci-dessous:</p>
+<figure class="align-center">
+<img alt="../_images/graphe_2.svg" src="../_images/graphe_2.svg" /></figure>
+<p>La liste d’adjacence de ce graphe est :</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="p">:</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">]</span>
+<span class="n">B</span> <span class="p">:</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="n">C</span><span class="p">]</span>
+<span class="n">C</span> <span class="p">:</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">E</span><span class="p">]</span>
+<span class="n">D</span> <span class="p">:</span> <span class="p">[</span><span class="n">C</span><span class="p">,</span><span class="n">E</span><span class="p">]</span>
+<span class="n">E</span> <span class="p">:</span> <span class="p">[</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="interface-dun-graphe">
+<h2>Interface d’un graphe<a class="headerlink" href="#interface-dun-graphe" title="Link to this heading">#</a></h2>
+<div class="propriete admonition">
+<p class="admonition-title">Propriété</p>
+<p>L’interface d’un graphe doit définir celui-ci avec :</p>
+<ul class="simple">
+<li><p>sa matrice d’adjacence avec des valeurs booléennes <code class="docutils literal notranslate"><span class="pre">True</span></code> et <code class="docutils literal notranslate"><span class="pre">False</span></code> ou entières <code class="docutils literal notranslate"><span class="pre">1</span></code> et <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>sa liste d’adjacence contenant pour chaque sommet sa liste de ses sommets adjacents.</p></li>
+</ul>
+<p>L’interface du graphe doit proposer plusieurs primitives qui permettent d’accéder aux éléments du graphe. On peut retrouver les fonctions ou méthodes suivantes :</p>
+<ul class="simple">
+<li><p>vérifier si un sommet appartient au graphe;</p></li>
+<li><p>vérifier si arc entre 2 sommets existe;</p></li>
+<li><p>renvoyer la liste des sommets adjacents à un sommet du graphe;</p></li>
+<li><p>renvoyer le nombre de sommets du graphe;</p></li>
+<li><p>renvoyer le nombre d’arcs du graphe;</p></li>
+</ul>
+<p>D’autres méthodes ou fonctions peuvent compléter les primitives précédentes comme :</p>
+<ul class="simple">
+<li><p>ajouter un sommet au graphe ;</p></li>
+<li><p>ajouter un arc entre 2 sommets d’un graphe;</p></li>
+<li><p>supprimer un sommet au graphe;</p></li>
+<li><p>supprimer un arc entre 2 sommets du graphe;</p></li>
+</ul>
+</div>
+</section>
+<section id="implementation-en-python">
+<h2>Implémentation en Python<a class="headerlink" href="#implementation-en-python" title="Link to this heading">#</a></h2>
+<p>Plusieurs implémentations en Python sont possibles.</p>
+<ol class="arabic simple">
+<li><p>L’implémentation de la matrice d’adjacence d’un graphe peut simplement se réaliser avec une liste Python à 2 dimensions. C’est donc une liste qui contient autant de listes que de sommets. Chaque sous-liste représente alors une ligne de la matrice d’ajacence.</p></li>
+<li><p>L’implémentation de la liste d’adjacence d’un graphe peut se réaliser avec un dictionnaire. Chaque clé du dictionnaire représente un sommet du graphe. Les valeurs associées aux clés du dictionnaire sont des listes contenant les sommets adjacents.</p></li>
+<li><p>Les primitives définies par l’interface du graphe sont codées sous formes de fonctions.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La création d’une classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> pour implémenter un graphe est possible. La matrice d’adjacence et la liste d’adjacence du graphe sont les attributs de l’objet construit <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> et les primitives sont les méthodes de la classe.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="activite.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Représentation des graphes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercice.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Exercice sur les graphes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-dadjacence">Matrice d’adjacence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-adjacence">Liste d’adjacence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-dun-graphe">Interface d’un graphe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-en-python">Implémentation en Python</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Yannick Chistel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024,Yannick Chistel.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

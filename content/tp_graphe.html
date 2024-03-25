@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TP : implémenter un graphe en Python (POO) &#8212; NSI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bc08d2ed" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=d99ca74e"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/tp_graphe';</script>
+    <script src="../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Haut de page
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">NSI</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activite.html">Représentation des graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cours.html">Les graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice.html">Exercice sur les graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice_python.html">Exercice en Python</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/tp_graphe.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TP : implémenter un graphe en Python (POO)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-attributs">Les attributs:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-methodes">Les méthodes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-utiliser-cette-classe">Comment utiliser cette classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-a-chercher">Travail à chercher</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tp-implementer-un-graphe-en-python-poo">
+<h1>TP : implémenter un graphe en Python (POO)<a class="headerlink" href="#tp-implementer-un-graphe-en-python-poo" title="Link to this heading">#</a></h1>
+<p>On donne la classe <strong>Graphe</strong> écrite en Python dont l’interface est la suivante:</p>
+<section id="les-attributs">
+<h2>Les attributs:<a class="headerlink" href="#les-attributs" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>dict</strong> qui est un objet <strong>Graphe_dict</strong>.</p>
+<p>Un objet <strong>Graphe_dict</strong> a pour attribut <strong>valeur</strong> qui contient le
+dictionnaire d’adjacence du graphe;</p>
+</li>
+<li><p><strong>matrice</strong> qui est un objet <strong>Graphe_mat</strong>.</p>
+<p>Un objet <strong>Graphe_mat</strong> a pour attribut <strong>valeur</strong> qui contient la
+matrice d’adjacence du graphe;</p>
+</li>
+<li><p><strong>oriente</strong> qui est booléen indiquant si le graphe est orienté; par
+défaut le graphe est non orienté.</p></li>
+<li><p><strong>arcs</strong> qui est une liste contenant les arcs du graphe.</p></li>
+</ul>
+</section>
+<section id="les-methodes">
+<h2>Les méthodes:<a class="headerlink" href="#les-methodes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>ajouter_sommet</strong> qui ajoute un sommet au graphe;</p></li>
+<li><p><strong>ajouter_arc</strong> qui ajoute un arc au graphe entre deux sommets (2
+arcs si non orienté), le sommet est créé s’il n’existe pas;</p></li>
+<li><p><strong>supprimer_sommet</strong> qui supprime un sommet au graphe, les arcs
+associés sont supprimés;</p></li>
+<li><p><strong>supprimer_arc</strong> qui supprime un arc entre deux sommets;</p></li>
+<li><p><strong>est_arc</strong> qui renvoie un booléen d’existence d’arc entre deux
+sommets;</p></li>
+<li><p><strong>sommets</strong> qui renvoie la liste des sommets du graphe;</p></li>
+<li><p><strong>voisins</strong> qui renvoie la liste des sommets adjacents à un sommet;</p></li>
+<li><p><strong>afficher</strong> qui affiche une représentation du graphe.</p></li>
+</ul>
+</section>
+<section id="comment-utiliser-cette-classe">
+<h2>Comment utiliser cette classe<a class="headerlink" href="#comment-utiliser-cette-classe" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graphe</span> <span class="kn">import</span> <span class="n">Graphe</span>
+</pre></div>
+</div>
+<p>Pour créer un objet <span class="math notranslate nohighlight">\(G\)</span> graphe non orienté, on doit appeler la
+classe Graphe. Si le graphe est orienté, on donne en argument la valeur
+<strong>oriente=True</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">Graphe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>L’affichage des valeurs du dictionnaire d’adjacence et de la matrice
+d’adjacence se fait par les appels suivants:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">dict</span><span class="o">.</span><span class="n">valeur</span><span class="p">)</span> <span class="c1"># dictionnaire d&#39;adjacence</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">matrice</span><span class="o">.</span><span class="n">valeur</span><span class="p">)</span> <span class="c1"># matrice d&#39;adjacence</span>
+</pre></div>
+</div>
+<p>L’ajout de sommets et d’arcs se fait par les méthodes de l’objet Graphe
+données ci-dessus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">ajouter_sommet</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pour représenter le graphe, on utilise la méthode afficher</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">afficher</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="travail-a-chercher">
+<h2>Travail à chercher<a class="headerlink" href="#travail-a-chercher" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Récupérer sur l’ENT, le fichier Python <strong>graphe.py</strong> contenant la
+classe Graphe et importer là dans un nouveau fichier python.</p></li>
+<li><p>Créer l’objet graphe <span class="math notranslate nohighlight">\(G1\)</span> représenté dans l’exercice 1 en
+ajoutant les sommets et les arcs qui le compose.</p>
+<ol class="arabic simple">
+<li><p>Afficher le dictionnaire d’adjacence du graphe <span class="math notranslate nohighlight">\(G1\)</span>.</p></li>
+<li><p>Afficher la matrice d’adjacence du graphe <span class="math notranslate nohighlight">\(G1\)</span>.</p></li>
+<li><p>Afficher une vue du graphe <span class="math notranslate nohighlight">\(G1\)</span>.</p></li>
+</ol>
+</li>
+<li><p>La création d’un objet graphe se fait par l’ajout des arcs du graphe.</p>
+<ol class="arabic simple">
+<li><p>Soit L=[(’A’,’B’),(’A’,’C’),(’B’,’D’),(’C’,’D’)] la liste des arcs
+d’un graphe. En donner son dictionnaire et sa matrice d’adjacence.</p></li>
+<li><p>Écrire une fonction <strong>arcs_en_graphe</strong> qui a pour paramètre une
+liste d’arcs d’un graphe et renvoie un objet graphe associé à la
+liste des arcs passés en argument. Chaque arc sera un tuple
+composé des deux sommets reliés par l’arc.</p></li>
+<li><p>Vérifier votre fonction en créant le graphe <span class="math notranslate nohighlight">\(G2\)</span> de
+l’exercice 2 à partir de la liste des arcs du graphe.</p></li>
+</ol>
+</li>
+<li><p>Le parcours d’un graphe consiste à prendre un chemin en suivant les
+arcs du graphe. Pour déterminer l’existence d’une chaine eulérienne,
+c’est à dire savoir si on peut parcourir un graphe en prenant chaque
+arc une et une seule fois, il est nécessaire de déterminer les degrés
+de chaque sommet.</p>
+<ol class="arabic simple">
+<li><p>Écrire une fonction <strong>degre_sommet</strong> qui a pour paramètre un
+graphe et renvoie un dictionnaire dontles clefs sont chaque sommet
+du graphe et les valeurs le degré du sommet associé.</p></li>
+<li><p>Écrire une fonction <strong>chaine_eulerienne</strong> qui a pour paramètre un
+graphe et renvoie un booléen déterminant s’il existe une chaine
+eulérienne dans le graphe.</p></li>
+<li><p>Écrire un script python qui répond aux questions de l’exercice 4.</p></li>
+</ol>
+</li>
+<li><p>Écrire une fonction qui crée un graphe à partir de son dictionnaire
+d’adjacence. Vérifier avec les données de l’exercice 2 ou un autre
+graphe.</p></li>
+<li><p>Écrire une fonction qui crée un graphe à partir de sa matrice
+d’adjacence. Vérifier avec les données de l’exercice 3 ou un autre
+graphe.</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-attributs">Les attributs:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-methodes">Les méthodes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-utiliser-cette-classe">Comment utiliser cette classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-a-chercher">Travail à chercher</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Yannick Chistel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024,Yannick Chistel.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
