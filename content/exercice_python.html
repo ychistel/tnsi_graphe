@@ -302,6 +302,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
 </ul>
             </nav>
         </div>
@@ -325,10 +326,10 @@ document.write(`
 <p>On définit un graphe par sa matrice d’ajacence. Les primitives suivantes définissent l’interface de ce graphe:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Le constructeur <code class="docutils literal notranslate"><span class="pre">creer_matrice</span></code> qui a pour paramètre <code class="docutils literal notranslate"><span class="pre">n</span></code> de type entier correspondant à la dimension de la matrice, c’est à dire au nombre de sommets du graphe. La fonction renvoie une liste de dimension <code class="docutils literal notranslate"><span class="pre">n</span></code> contenant <code class="docutils literal notranslate"><span class="pre">n</span></code> listes de dimension <code class="docutils literal notranslate"><span class="pre">n</span></code> initialisée à 0.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">est_adjacent</span></code> qui a pour paramètres <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> de type entiers associés à 2 sommets du graphe. La fonction renvoie un booléen de valeur <code class="docutils literal notranslate"><span class="pre">True</span></code> si les sommets sont adjacents et valeur <code class="docutils literal notranslate"><span class="pre">False</span></code> s’ils ne le sont pas.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">ajouter_arc</span></code> qui a pour paramètres <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> de type entiers associés à 2 sommets du graphe. La fonction ajoute un arc entre les 2 sommets ce qui signifie que les sommets sont adjacents. La fonction ne renvoie rien.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">supprimer_arc</span></code> qui a pour paramètres <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> de type entiers associés à 2 sommets du graphe. La fonction supprime un arc entre les 2 sommets ce qui signifie que les sommets ne sont pas adjacents. La fonction ne renvoie rien.</p></li>
+<li><p>Le constructeur <code class="docutils literal notranslate"><span class="pre">creer_matrice</span></code> a pour paramètre <code class="docutils literal notranslate"><span class="pre">n</span></code> de type entier correspondant à la dimension de la matrice, c’est à dire au nombre de sommets du graphe. La fonction renvoie une liste de dimension <code class="docutils literal notranslate"><span class="pre">n</span></code> contenant <code class="docutils literal notranslate"><span class="pre">n</span></code> listes de dimension <code class="docutils literal notranslate"><span class="pre">n</span></code> initialisée à 0.</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">est_adjacent</span></code> a pour paramètres la matrice d’adjacence et 2 sommets du graphe <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> de type entiers. La fonction renvoie un booléen de valeur <code class="docutils literal notranslate"><span class="pre">True</span></code> si les sommets sont adjacents et de valeur <code class="docutils literal notranslate"><span class="pre">False</span></code> s’ils ne le sont pas.</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">ajouter_arc</span></code> a pour paramètres la matrice d’adjacence et <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> de type entiers associés à 2 sommets du graphe. La fonction ajoute un arc entre les 2 sommets ce qui signifie que les sommets sont adjacents. La fonction ne renvoie rien.</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">supprimer_arc</span></code> a pour paramètres la matrice d’adjacence et <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> de type entiers associés à 2 sommets du graphe. La fonction supprime un arc entre les 2 sommets ce qui signifie que les sommets ne sont pas adjacents. La fonction ne renvoie rien.</p></li>
 </ul>
 </div></blockquote>
 <p>Un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> est donné ci-après nous permettre de tester nos fonctions.</p>
@@ -385,10 +386,10 @@ document.write(`
 <p>On définit un graphe par sa liste d’ajacence qui contient chaque sommet du graphe et pour chaque sommet, la liste des sommets qui lui sont adjacents. Les sommets sont de type string (chaine de caractère). Les primitives suivantes définissent l’interface de ce graphe:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Le constructeur <code class="docutils literal notranslate"><span class="pre">creer_liste</span></code> qui n’a pas de paramètre et qui renvoie un dictionnaire vide.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">est_adjacent</span></code> qui a pour paramètres <code class="docutils literal notranslate"><span class="pre">s1</span></code> et <code class="docutils literal notranslate"><span class="pre">s2</span></code> de type string associés à 2 sommets du graphe. La fonction renvoie un booléen de valeur <code class="docutils literal notranslate"><span class="pre">True</span></code> si les sommets sont adjacents et valeur <code class="docutils literal notranslate"><span class="pre">False</span></code> s’ils ne le sont pas.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">ajouter_sommet</span></code> qui a pour paramètre <code class="docutils literal notranslate"><span class="pre">s</span></code> de type string associé à 1 sommet du graphe. La fonction ajoute un sommet au graphe et lui associe une liste vide pour les sommets adjacents. La fonction ne renvoie rien ou le dictionnaire représentant le graphe.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">ajouter_adjacent</span></code> qui a pour paramètres <code class="docutils literal notranslate"><span class="pre">s1</span></code> et <code class="docutils literal notranslate"><span class="pre">s2</span></code> de type string associé à 2 sommets adjacents du graphe. La fonction ajoute les sommets adjacents au graphe. La fonction ne renvoie rien ou le dictionnaire représentant le graphe.</p></li>
+<li><p>Le constructeur <code class="docutils literal notranslate"><span class="pre">creer_liste</span></code> n’a pas de paramètre et renvoie un dictionnaire vide.</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">est_adjacent</span></code> a pour paramètres la liste d’adjacence et 2 sommets <code class="docutils literal notranslate"><span class="pre">s1</span></code> et <code class="docutils literal notranslate"><span class="pre">s2</span></code> de type string. La fonction renvoie un booléen de valeur <code class="docutils literal notranslate"><span class="pre">True</span></code> si les sommets sont adjacents et de valeur <code class="docutils literal notranslate"><span class="pre">False</span></code> s’ils ne le sont pas.</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">ajouter_sommet</span></code> a pour paramètre la liste d’adjacence et un sommet <code class="docutils literal notranslate"><span class="pre">s</span></code> de type string. La fonction ajoute un sommet au graphe et lui associe une liste vide pour les sommets adjacents. La fonction ne renvoie rien ou le dictionnaire représentant le graphe.</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">ajouter_adjacent</span></code> a pour paramètres la liste d’adjacence et 2 sommets adjacents <code class="docutils literal notranslate"><span class="pre">s1</span></code> et <code class="docutils literal notranslate"><span class="pre">s2</span></code> de type string. La fonction ne renvoie rien ou le dictionnaire représentant le graphe.</p></li>
 </ul>
 </div></blockquote>
 <p>Un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> est donné ci-après nous permettre de tester nos fonctions.</p>
@@ -404,7 +405,7 @@ document.write(`
 </li>
 <li><p>Le module <code class="docutils literal notranslate"><span class="pre">Graphviz</span></code> (disponible sur Capytale) affiche des graphes définis par des objets de la classe <code class="docutils literal notranslate"><span class="pre">Graph</span></code> dont <code class="docutils literal notranslate"><span class="pre">dot</span></code> et <code class="docutils literal notranslate"><span class="pre">edge</span></code> sont des attributs. Le module doit être importé pour être utilisé.</p>
 <p>from graphviz import Graph</p>
-<p>La fonction <code class="docutils literal notranslate"><span class="pre">afficher</span></code> prend en paramètre une matrice d’adjacence d’un graphe non orienté et en donne une représentation sous forme d’image <code class="docutils literal notranslate"><span class="pre">png</span></code>.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">afficher</span></code> prend en paramètre une liste d’adjacence d’un graphe non orienté et en donne une représentation sous forme d’image <code class="docutils literal notranslate"><span class="pre">png</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">afficher</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Le module Graphviz est utilisé. Les sous-modules Digraph et Graphe</span>
@@ -432,7 +433,24 @@ document.write(`
     <span class="k">return</span> <span class="n">dot</span>
 </pre></div>
 </div>
+<p>Afficher le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> et vérifier la cohérence avec le graphe initial.</p>
 </li>
+</ol>
+</section>
+<section id="exercice-3">
+<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Link to this heading">#</a></h2>
+<p>On propose de créer une classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> qui permet de construire des objets de type <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> implémentant des graphes non orientés.</p>
+<ol class="arabic">
+<li><p>Le constructeur de la classe <code class="docutils literal notranslate"><span class="pre">__init__</span></code> crée l’attribut <code class="docutils literal notranslate"><span class="pre">liste</span></code> de type <code class="docutils literal notranslate"><span class="pre">dict</span></code> associé à la liste d’adjacence d’un graphe.</p>
+<p>Créer cette classe et le constructeur de la classe. L’attribut <code class="docutils literal notranslate"><span class="pre">liste</span></code> est initialisé à un dictionnaire vide.</p>
+</li>
+<li><p>La méthode <code class="docutils literal notranslate"><span class="pre">ajouter_sommet</span></code> ajoute un nouveau sommet au graphe. Le sommet ajouté est passé en paramètre de la méthode.</p>
+<p>Créer la méthode <code class="docutils literal notranslate"><span class="pre">ajouter_sommet</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code>.</p>
+</li>
+<li><p>La méthode <code class="docutils literal notranslate"><span class="pre">ajouter_arc</span></code> ajoute un arc entre 2 sommets du graphe ce qui signifie qu’il rend adjacent ces 2 sommets. Les 2 sommets sont donc passés en argmument de la méthode. Cet ajout implique une modification de la liste d’adjacence.</p>
+<p>Créer la méthode <code class="docutils literal notranslate"><span class="pre">ajouter_arc</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code>. Attention, comme le graphe est non orienté, chaque sommet est sommet adjacent!</p>
+</li>
+<li><p>La méthode <code class="docutils literal notranslate"><span class="pre">matrice</span></code> transforme la liste d’adjacence en matrice d’adjacence. Ajouter cette méthode à la classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> pour obtenir cette matrice.</p></li>
 </ol>
 </section>
 </section>
@@ -475,6 +493,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
 </ul>
   </nav></div>
 
