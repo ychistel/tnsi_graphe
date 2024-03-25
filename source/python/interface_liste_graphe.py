@@ -41,15 +41,40 @@ def afficher(liste):
         dot.edge(s1,s2)
     return dot
 
-L = creer_liste()
-ajouter_sommet(L,'A')
-ajouter_sommet(L,'B')
-ajouter_sommet(L,'C')
-ajouter_sommet(L,'D')
-ajouter_adjacent(L,'A','B')
-ajouter_adjacent(L,'A','D')
-ajouter_adjacent(L,'B','D')
-ajouter_adjacent(L,'B','C')
-ajouter_adjacent(L,'C','D')
-G = afficher(L)
-G.view()
+def parcours_profondeur(graphe,sommet):
+    """
+    Paramètres:
+    - graphe : liste des sommets adjacence du graphe (dictionnaire)
+    - sommet : un sommet du graphe (départ du parcours)
+    Return
+    La fonction renvoie la liste vus contenant les sommets visités
+    depuis le sommet de départ.
+    Variables locales:
+    - p représente une pile contenant les voisins de chaque sommet visité
+    - s est un sommet du graphe
+    """
+    vus = []
+    p = [sommet]
+    while len(p) > 0:
+        s = p.pop()
+        if s not in vus:
+            vus.append(s)
+            for v in graphe[s]:
+                p.append(v)
+    return vus
+
+if __name__ == '__main__':
+    L = creer_liste()
+    ajouter_sommet(L,'A')
+    ajouter_sommet(L,'B')
+    ajouter_sommet(L,'C')
+    ajouter_sommet(L,'D')
+    ajouter_adjacent(L,'A','B')
+    ajouter_adjacent(L,'A','D')
+    ajouter_adjacent(L,'B','D')
+    ajouter_adjacent(L,'B','C')
+    ajouter_adjacent(L,'C','D')
+    parcours_D = parcours_profondeur(L,'D')
+    parcours_A = parcours_profondeur(L,'A')
+    G = afficher(L)
+    G.view()

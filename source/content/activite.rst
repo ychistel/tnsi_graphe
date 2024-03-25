@@ -31,7 +31,7 @@ Il existe des représentations d'un graphe sous forme de **matrice** d'adjacence
 Implémentation en Python
 ------------------------
 
-#.  La matrice d'adjacence est implémentée par une liste en 2 dimensions. C'est donc une liste des listes représentant les lignes de la matrice d'adjacence. Le premier sommet du graphe est représenté par l'indice 0, le second par l'indice 1, et ainsi de suite.
+#.  La matrice d'adjacence est implémentée par une liste en 2 dimensions. C'est donc une liste de listes représentant les lignes de la matrice d'adjacence. Le premier sommet du graphe est représenté par l'indice 0, le second par l'indice 1, et ainsi de suite.
 
     La variable ``M`` implémente le graphe ``G`` Donner le contenu de la variable ``M``.
 
