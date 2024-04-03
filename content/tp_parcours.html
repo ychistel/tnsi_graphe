@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exercice sur les graphes &#8212; NSI</title>
+    <title>TP : Parcourir un graphe &#8212; NSI</title>
   
   
   
@@ -43,12 +43,11 @@
     <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script src="../_static/translations.js?v=d99ca74e"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/exercice';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/tp_parcours';</script>
     <script src="../_static/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Exercice en Python" href="exercice_python.html" />
-    <link rel="prev" title="Les graphes" href="cours.html" />
+    <link rel="prev" title="Exercice en Python" href="exercice_python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -152,9 +151,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="activite.html">Représentation des graphes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cours.html">Les graphes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercice sur les graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice.html">Exercice sur les graphes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercice_python.html">Exercice en Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tp_parcours.html">TP : Parcourir un graphe</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TP : Parcourir un graphe</a></li>
 </ul>
 
     </div>
@@ -209,7 +208,7 @@
       
       
       
-      <li><a href="../_sources/content/exercice.rst" target="_blank"
+      <li><a href="../_sources/content/tp_parcours.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,7 +292,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercice sur les graphes</h1>
+    <h1>TP : Parcourir un graphe</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -303,10 +302,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcours-en-profondeur">Parcours en profondeur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcours-en-largeur">Parcours en largeur</a></li>
 </ul>
             </nav>
         </div>
@@ -318,92 +315,155 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="exercice-sur-les-graphes">
-<h1>Exercice sur les graphes<a class="headerlink" href="#exercice-sur-les-graphes" title="Link to this heading">#</a></h1>
-<section id="exercice-1">
-<h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Link to this heading">#</a></h2>
-<p>On donne ci-dessous un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>:</p>
+  <section id="tp-parcourir-un-graphe">
+<h1>TP : Parcourir un graphe<a class="headerlink" href="#tp-parcourir-un-graphe" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ce TP peut se faire dans un éditeur Python comme Thonny mais il faudra vous assurer d’avoir les modules créés cette année pour créer un <strong>graphe</strong>, une <strong>pile</strong> et une <strong>file</strong>.</p>
+<p>Un notebook est disponible sur Capytale et comprend les différents modules nécessaires à ce TP.</p>
+</div>
+<section id="parcours-en-profondeur">
+<h2>Parcours en profondeur<a class="headerlink" href="#parcours-en-profondeur" title="Link to this heading">#</a></h2>
+<p>On donne ci-dessous un graphe <span class="math notranslate nohighlight">\(G\)</span>:</p>
 <figure class="align-center">
-<img alt="../_images/graphe_4.svg" src="../_images/graphe_4.svg" /></figure>
-<ol class="arabic simple">
-<li><p>Donner la liste d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>Donner la matrice d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>On oriente le graphe en respectant l’ordre alphabétique. Par exemple, le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> est relié au sommet <code class="docutils literal notranslate"><span class="pre">B</span></code> par un arc orienté de <code class="docutils literal notranslate"><span class="pre">A</span></code> vers <code class="docutils literal notranslate"><span class="pre">B</span></code> car A est avant B dans l’ordre alphabétique.</p>
-<ol class="loweralpha simple">
-<li><p>Redessiner le graphe orienté.</p></li>
-<li><p>Redonner la liste d’adjacence et la matrice d’adjacence du graphe orienté si elles sont différentes de celles du graphe non orienté.</p></li>
-</ol>
+<img alt="../_images/graphe_5.svg" src="../_images/graphe_5.svg" /></figure>
+<p>Le parcours en profondeur consiste à parcourir les sommets reliés d’un graphe. Les sommets du graphe ont plusieurs sommets adjacents ce qui implique un choix de sommet à parcourir fait par l’algorithme. Les sommets adjacents ignorés sont alors placés dans une pile. Les sommets visités sont mémorisés dans une liste pour ne pas y retourner. Lorsqu’on arrive sur un sommet sans sommet adjacent ou déjà visité, on continue le parcours avec les sommets placés dans la pile.</p>
+<p>Lorsque la pile est vide, la liste des sommets visités donne le <strong>parcours en profondeur</strong> du graphe.</p>
+<p>On donne ci-après l’algorithme du parcours en profondeur d’un graphe.</p>
+<div class="code admonition">
+<p class="admonition-title">Algorithme</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>G désigne un graphe
+S désigne un sommet du graphe
+
+sommets visités = []
+P est la pile des sommets à visiter (vide au départ)
+On empile le sommet de départ S dans P
+
+Tant que la pile P n&#39;est pas vide:
+    On dépile un sommet S à visiter
+    Si S n&#39;est pas un sommet visité:
+        on l&#39;ajoute à la liste des sommets visités
+        Pour chacun des sommets adjacents à ce sommet S
+            on les empile dans la pile P
+
+On renvoie la liste des sommets visités
+</pre></div>
+</div>
+</div>
+<ol class="arabic">
+<li><p>Donner un parcours en profondeur possible du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> en partant du sommet <code class="docutils literal notranslate"><span class="pre">A</span></code>.
+Donner les différents états de la pile <code class="docutils literal notranslate"><span class="pre">P</span></code> et de la liste <code class="docutils literal notranslate"><span class="pre">sommets_visités</span></code> à chaque itération de la boucle.</p></li>
+<li><p>Écrire en Python la fonction <code class="docutils literal notranslate"><span class="pre">parcours_profondeur</span></code> qui reprend l’algorithme ci-dessus. La fonction prend en paramètre un graphe défini par ses sommets adjacents et un sommet de départ du parcours.</p>
+<p>La fonction renvoie la liste des sommets visités qui est un parcours en profondeur du graphe passé en paramètre.</p>
 </li>
-</ol>
-</section>
-<section id="exercice-2">
-<h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Link to this heading">#</a></h2>
-<p>On donne la liste d’adjacence d’un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> non orienté:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;E&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;F&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">]</span>
+<li><p>On donne un graphe défini par son dictionnaire d’adjacence :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;E&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;F&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<ol class="arabic simple">
-<li><p>Représenter schématiquement le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>Donner la matrice d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
+<p>Déterminer avec la fonction python un parcours en profondeur du graphe en partant du sommet <strong>A</strong>.</p>
+</li>
 </ol>
 </section>
-<section id="exercice-3">
-<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Link to this heading">#</a></h2>
-<p>On donne la matrice d’adjacence d’un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> non orienté:</p>
-<div class="center docutils container">
-<p><span class="math notranslate nohighlight">\(M=\begin{pmatrix}
-0 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
-1 &amp; 0 &amp; 1 &amp; 1 &amp; 0\\
-1 &amp; 1 &amp; 0 &amp; 1 &amp; 1\\
-0 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 1\\
-\end{pmatrix}\)</span></p>
+<section id="parcours-en-largeur">
+<h2>Parcours en largeur<a class="headerlink" href="#parcours-en-largeur" title="Link to this heading">#</a></h2>
+<p>Le <strong>parcours en largeur</strong> d’un graphe a pour but de donner le plus court chemin entre deux sommets du graphe s’il existe.</p>
+<p>On se donne un sommet de départ puis on détermine tous les sommets distants de 1, puis tous les sommets distants de 2, etc, jusqu’à avoir visité tous les sommets du graphe relié au sommet de départ.</p>
+<p>On peut utiliser un dictionnaire pour mémoriser tous les sommets et les distances les séparant du sommet de départ. Le sommet de départ a une distance de 0.</p>
+<p>On donne ci-après l’algorithme de parcours en largeur d’un graphe:</p>
+<div class="code admonition">
+<p class="admonition-title">Algorithme</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>VARIABLES:
+--------------------------------------------------------------------
+G désigne le graphe
+S désigne un sommet du graphe
+V désigne un sommet adjacent à S
+
+distances est un dictionnaire qui contient les sommets et les distances au départ
+courant est une liste qui contient les sommets à visiter
+suivant est une liste qui contient des sommets adjacents non visités
+--------------------------------------------------------------------
+distances = {S:0}
+courant contient le sommet de départ
+suivant est vide
+
+Tant que courant n&#39;est pas vide:
+    on prend un sommet S dans la liste suivant
+        Pour chaque sommet V adjacent à S:
+            si V n&#39;est pas dans le dictionnaire distances:
+                on l&#39;ajoute à la liste suivant
+                on l&#39;ajoute au dictionnaire avec la distance de S augmentée de 1
+            si la liste courant est vide:
+                courant récupère les valeurs de la liste suivant
+                on vide suivant.
+
+On renvoie le dictionnaire distances
+</pre></div>
 </div>
-<ol class="arabic simple">
-<li><p>Représenter schématiquement ce graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>Donner la liste d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-</ol>
-</section>
-<section id="exercice-4">
-<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Link to this heading">#</a></h2>
-<p>Un groupe d’amis organise une randonnée dans les Alpes. On a représenté par le graphe ci-dessous les sommets <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">D</span></code>, <code class="docutils literal notranslate"><span class="pre">F</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> et <code class="docutils literal notranslate"><span class="pre">N</span></code> par lesquels ils peuvent choisir de passer. Une arête (arc) entre deux sommets coïncide avec l’existence d’un chemin de randonnée entre les deux sommets.</p>
-<figure class="align-center">
-<img alt="../_images/graphe_randonnee.png" src="../_images/graphe_randonnee.png" />
-</figure>
-<ol class="arabic simple">
-<li><p>On appelle <strong>degré</strong> d’un sommet le nombre de sommets qui lui sont adjacents. Compléter le tableau avec les degrés de chaque sommet.</p></li>
-</ol>
-<table class="bordure border-style-solid border-width-1 table">
+</div></blockquote>
+</div>
+<ol class="arabic">
+<li><p>Quel est le dictionnaire des distances au sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> ? Quel est ce dictionnaire si le départ est le sommet <code class="docutils literal notranslate"><span class="pre">E</span></code> ?</p></li>
+<li><p>On parcourt en largeur le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> en partant de <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<p>Donner les différents états des variables <code class="docutils literal notranslate"><span class="pre">S</span></code>, <code class="docutils literal notranslate"><span class="pre">V</span></code>, <code class="docutils literal notranslate"><span class="pre">courant</span></code>, <code class="docutils literal notranslate"><span class="pre">suivant</span></code> et <code class="docutils literal notranslate"><span class="pre">distances</span></code> à chaque itération de la boucle <strong>tant que</strong>. On pourra présenter les valeurs dans un tableau comme ci-dessous.</p>
+<table class="bordure border-style-solid border-width-1 border-color-gray table">
 <tbody>
-<tr class="row-odd"><td><p>sommets</p></td>
-<td><p>A</p></td>
-<td><p>C</p></td>
-<td><p>D</p></td>
-<td><p>F</p></td>
-<td><p>T</p></td>
-<td><p>N</p></td>
+<tr class="row-odd"><td><p>variables</p></td>
+<td><p>init.</p></td>
+<td><p>1</p></td>
+<td><p>…</p></td>
 </tr>
-<tr class="row-even"><td><p>degré sommet</p></td>
+<tr class="row-even"><td><p>courant</p></td>
+<td><p>[A]</p></td>
+<td><p>[]</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>suivant</p></td>
+<td><p>[]</p></td>
+<td><p>[B,C]</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>S</p></td>
 <td></td>
+<td><p>A</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>V</p></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><p>B,C</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>distances</p></td>
+<td><p>A:0</p></td>
+<td><p>B:1,
+C:1</p></td>
+<td><p>…</p></td>
 </tr>
 </tbody>
 </table>
-<ol class="arabic">
-<li><p>On dit qu’un graphe est <strong>connexe</strong> lorsque 2 sommets quelconques sont reliés par un chemin. Le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> est-il connexe ?</p></li>
-<li><p>Le mathématicien <strong>Euler</strong> a montré qu’il existe un chemin reliant tous les sommets en passant une et une seule fois par toutes les arêtes du graphe lorsque le graphe contient exactement 2 sommets de degré impair. Un tel chemin est appelé <strong>chaine eulérienne</strong>.</p>
-<p>Est-il envisageable de trouver une chaine eulérienne de randonnée passant par tous les arcs une et une seule fois? Donner un tel chemin s’il existe.</p>
+</li>
+<li><p>La fonction Python <code class="docutils literal notranslate"><span class="pre">parcours_largeur</span></code> prend en paramètre un graphe et un sommet de départ du graphe et renvoie le dictionnaire contenant les sommets du graphe reliés au sommet de départ avec chaque distance.</p>
+<p>Écrire le code de cette fonction en suivant l’algorithme ci-dessus.</p>
+</li>
+<li><p>On donne un graphe défini par son dictionnaire d’adjacence :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;E&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">],</span>\
+<span class="s1">&#39;F&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Déterminer avec la fonction python un parcours en largeur du graphe en partant du sommet <strong>A</strong>.</p>
 </li>
 </ol>
 </section>
@@ -421,22 +481,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cours.html"
+       href="exercice_python.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Les graphes</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="exercice_python.html"
-       title="page suivante">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Exercice en Python</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -454,10 +505,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcours-en-profondeur">Parcours en profondeur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcours-en-largeur">Parcours en largeur</a></li>
 </ul>
   </nav></div>
 

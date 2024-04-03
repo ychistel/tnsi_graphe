@@ -46,6 +46,7 @@
     <script src="../_static/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="TP : Parcourir un graphe" href="tp_parcours.html" />
     <link rel="prev" title="Exercice sur les graphes" href="exercice.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -152,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cours.html">Les graphes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercice.html">Exercice sur les graphes</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercice en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tp_parcours.html">TP : Parcourir un graphe</a></li>
 </ul>
 
     </div>
@@ -303,6 +305,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
             </nav>
         </div>
@@ -453,6 +456,31 @@ document.write(`
 <li><p>La méthode <code class="docutils literal notranslate"><span class="pre">matrice</span></code> transforme la liste d’adjacence en matrice d’adjacence. Ajouter cette méthode à la classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> pour obtenir cette matrice.</p></li>
 </ol>
 </section>
+<section id="exercice-4">
+<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Link to this heading">#</a></h2>
+<p>Le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> représenté ci-après est un graphe orienté.</p>
+<figure class="align-center">
+<img alt="../_images/graphe_oriente_ex_4.png" src="../_images/graphe_oriente_ex_4.png" />
+</figure>
+<ol class="arabic">
+<li><p>Donner pour le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> les sommets adjacents de chaque sommet et sa matrice d’adjacence.</p></li>
+<li><p>Les sommets du graphe sont rassemblés dans une liste <code class="docutils literal notranslate"><span class="pre">sommets=['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D',</span> <span class="pre">'E']</span></code>. Le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> est associé à l’indice <code class="docutils literal notranslate"><span class="pre">0</span></code>, le sommet <code class="docutils literal notranslate"><span class="pre">B</span></code> à l’indice <code class="docutils literal notranslate"><span class="pre">1</span></code>, etc.</p>
+<p>Les sommets adjacents d’un sommet du graphe sont regroupés dans la liste <code class="docutils literal notranslate"><span class="pre">liste_adj</span></code> qui contient donc en indice <code class="docutils literal notranslate"><span class="pre">0</span></code> les sommets adjacents de <code class="docutils literal notranslate"><span class="pre">A</span></code>, à l’indice <code class="docutils literal notranslate"><span class="pre">1</span></code> les sommets adjacents de <code class="docutils literal notranslate"><span class="pre">B</span></code>, etc.</p>
+<p>Écrire le contenu de la liste <code class="docutils literal notranslate"><span class="pre">liste_adj</span></code> du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+</li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">predecesseurs</span></code> prend en paramètre un graphe défini par la liste d’adjacence et un sommet <code class="docutils literal notranslate"><span class="pre">s</span></code> du graphe. Cette fonction renvoie la liste de tous les sommets dont <code class="docutils literal notranslate"><span class="pre">s</span></code> est un sommet adjacent.</p>
+<p>Par exemple, pour le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> ci-dessus, l’appel <code class="docutils literal notranslate"><span class="pre">predecesseurs(G,'D')</span></code> renvoie la liste de sommets <code class="docutils literal notranslate"><span class="pre">['B','C','E']</span></code>.</p>
+<p>Écrire le code de la fonction <code class="docutils literal notranslate"><span class="pre">predecesseurs</span></code>.</p>
+</li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">liste_matrice</span></code> prend en paramètre une liste d’adjacence représentant le graphe. La fonction renvoie la matrice d’adjacence associée au graphe.</p>
+<p>Par exemple, la liste d’adjacence associée au graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> renvoie la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code> définie par la liste suivante:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>M = [[0, 1, 0, 0, 1], [0, 0, 1, 1, 0], [1, 0, 0, 1, 0], [0, 0, 0, 0, 1], [0, 0, 0, 1, 0]]
+</pre></div>
+</div>
+<p>Écrire le code de la fonction <code class="docutils literal notranslate"><span class="pre">liste_matrice</span></code>.</p>
+</li>
+</ol>
+</section>
 </section>
 
 
@@ -475,6 +503,15 @@ document.write(`
         <p class="prev-next-title">Exercice sur les graphes</p>
       </div>
     </a>
+    <a class="right-next"
+       href="tp_parcours.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">TP : Parcourir un graphe</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -494,6 +531,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
   </nav></div>
 

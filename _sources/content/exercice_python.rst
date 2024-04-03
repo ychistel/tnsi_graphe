@@ -142,3 +142,34 @@ On propose de créer une classe ``Graphe`` qui permet de construire des objets d
     Créer la méthode ``ajouter_arc`` dans la classe ``Graphe``. Attention, comme le graphe est non orienté, chaque sommet est sommet adjacent!
 
 #.  La méthode ``matrice`` transforme la liste d'adjacence en matrice d'adjacence. Ajouter cette méthode à la classe ``Graphe`` pour obtenir cette matrice.
+
+Exercice 4
+----------
+
+Le graphe ``G`` représenté ci-après est un graphe orienté.
+
+.. figure:: ../img/graphe_oriente_ex_4.png
+    :align: center
+
+#.  Donner pour le graphe ``G`` les sommets adjacents de chaque sommet et sa matrice d'adjacence.
+#.  Les sommets du graphe sont rassemblés dans une liste ``sommets=['A', 'B', 'C', 'D', 'E']``. Le sommet ``A`` est associé à l'indice ``0``, le sommet ``B`` à l'indice ``1``, etc. 
+
+    Les sommets adjacents d'un sommet du graphe sont regroupés dans la liste ``liste_adj`` qui contient donc en indice ``0`` les sommets adjacents de ``A``, à l'indice ``1`` les sommets adjacents de ``B``, etc.
+    
+    Écrire le contenu de la liste ``liste_adj`` du graphe ``G``.
+
+#.  La fonction ``predecesseurs`` prend en paramètre un graphe défini par la liste d'adjacence et un sommet ``s`` du graphe. Cette fonction renvoie la liste de tous les sommets dont ``s`` est un sommet adjacent. 
+
+    Par exemple, pour le graphe ``G`` ci-dessus, l'appel ``predecesseurs(G,'D')`` renvoie la liste de sommets ``['B','C','E']``. 
+    
+    Écrire le code de la fonction ``predecesseurs``.
+
+#.  La fonction ``liste_matrice`` prend en paramètre une liste d'adjacence représentant le graphe. La fonction renvoie la matrice d'adjacence associée au graphe.
+
+    Par exemple, la liste d'adjacence associée au graphe ``G`` renvoie la matrice ``M`` définie par la liste suivante:
+
+    .. code:: math
+        
+        M = [[0, 1, 0, 0, 1], [0, 0, 1, 1, 0], [1, 0, 0, 1, 0], [0, 0, 0, 0, 1], [0, 0, 0, 1, 0]]
+
+    Écrire le code de la fonction ``liste_matrice``.
