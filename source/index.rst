@@ -24,4 +24,5 @@ Graphes
    content/cours.rst
    content/exercice.rst
    content/exercice_python.rst
+   content/tp_parcours.rst
 
