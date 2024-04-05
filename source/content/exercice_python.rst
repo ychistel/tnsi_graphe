@@ -1,5 +1,5 @@
-Exercice en Python
-==================
+exercices en Python
+===================
 
 .. note::
 
@@ -151,25 +151,21 @@ Le graphe ``G`` représenté ci-après est un graphe orienté.
 .. figure:: ../img/graphe_oriente_ex_4.png
     :align: center
 
-#.  Donner pour le graphe ``G`` les sommets adjacents de chaque sommet et sa matrice d'adjacence.
-#.  Les sommets du graphe sont rassemblés dans une liste ``sommets=['A', 'B', 'C', 'D', 'E']``. Le sommet ``A`` est associé à l'indice ``0``, le sommet ``B`` à l'indice ``1``, etc. 
+#.  Donner pour le graphe ``G`` les sommets adjacents de chaque sommet.
+#.  Les sommets du graphe sont rassemblés dans une liste ``etiquettes=['A', 'B', 'C', 'D', 'E']``. Le sommet ``A`` est associé à l'indice ``0``, le sommet ``B`` à l'indice ``1``, etc. 
 
-    Les sommets adjacents d'un sommet du graphe sont regroupés dans la liste ``liste_adj`` qui contient donc en indice ``0`` les sommets adjacents de ``A``, à l'indice ``1`` les sommets adjacents de ``B``, etc.
+    Les sommets adjacents d'un sommet du graphe sont regroupés dans la liste ``adj`` qui contient donc en indice ``0`` les sommets adjacents de ``A``, à l'indice ``1`` les sommets adjacents de ``B``, etc.
     
-    Écrire le contenu de la liste ``liste_adj`` du graphe ``G``.
+    Compléter le contenu de la liste ``adj`` du graphe ``G`` donnée ci-après: ``adj = [[1,4],...]``
 
-#.  La fonction ``predecesseurs`` prend en paramètre un graphe défini par la liste d'adjacence et un sommet ``s`` du graphe. Cette fonction renvoie la liste de tous les sommets dont ``s`` est un sommet adjacent. 
+#.  La fonction ``predecesseurs`` prend en paramètre un graphe défini par la liste d'adjacence ``adj`` et un sommet ``s`` du graphe. Cette fonction renvoie la liste de tous les sommets dont ``s`` est un sommet adjacent. 
 
     Par exemple, pour le graphe ``G`` ci-dessus, l'appel ``predecesseurs(G,'D')`` renvoie la liste de sommets ``['B','C','E']``. 
     
     Écrire le code de la fonction ``predecesseurs``.
 
-#.  La fonction ``liste_matrice`` prend en paramètre une liste d'adjacence représentant le graphe. La fonction renvoie la matrice d'adjacence associée au graphe.
+#.  La fonction ``liste_adjacent`` transforme un dictionnaire qui contient chaque sommet avec ces sommets adjacents d'un graphe en une liste des sommets adjacents comme définie ci-dessus. La fonction prend en paramètre un dictionnaire et renvoie une liste.
 
-    Par exemple, la liste d'adjacence associée au graphe ``G`` renvoie la matrice ``M`` définie par la liste suivante:
-
-    .. code:: math
-        
-        M = [[0, 1, 0, 0, 1], [0, 0, 1, 1, 0], [1, 0, 0, 1, 0], [0, 0, 0, 0, 1], [0, 0, 0, 1, 0]]
-
-    Écrire le code de la fonction ``liste_matrice``.
+    a.  Écrire le code de la fonction ``liste_adjacent``.
+    b.  Vérifier cette fonction avec le graphe ``G`` de cet exercice.
+    c.  Ajouter cette fonction en tant que méthode de la classe ``Graphe`` créée dans l'exercice précédent.

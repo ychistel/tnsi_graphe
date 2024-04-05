@@ -82,7 +82,7 @@ On donne ci-après l'algorithme de parcours en largeur d'un graphe:
             
             VARIABLES:
             --------------------------------------------------------------------
-            G désigne le graphe
+            G désigne le graphe par sa liste d'adjacence
             S désigne un sommet du graphe
             V désigne un sommet adjacent à S
 

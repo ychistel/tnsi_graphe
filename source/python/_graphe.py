@@ -4,12 +4,17 @@ from graphviz import Graph,Digraph
 class Graphe:
     
     def __init__(self,oriente=False):
-        self.liste = {}
+        """
+        Attributs:
+            adjacent : dictionnaire des sommets adjacents à chaque sommet
+            oriente : booleen qui indique si le graphe est orienté
+        """
+        self.adjacent = {}
         self.oriente=oriente
                 
     def ajouter_sommet(self,s):
-        if s not in self.liste.keys():
-            self.liste[s] = []
+        if s not in self.adjacent.keys():
+            self.adjacent[s] = []
     
     def supprimer_sommet(self,s):
         """
@@ -17,12 +22,11 @@ class Graphe:
         - la clé associée au sommet
         - toutes les valeurs comme sommet adjacent d'un autre sommet.
         """
-        if s in self.liste.keys():
-            for sommet in self.liste[s]:
-                self.liste[s].remove(sommet)
-            del self.liste[s]
+        if s in self.adjacent.keys():
+            for sommet in self.adjacent[s]:
+                self.adjacent[s].remove(sommet)
+            del self.adjacent[s]
             
-                   
     def ajouter_adjacent(self,s1,s2):
         """
         Si le graphe est orienté, alors l'arc va de s1 à s2.
@@ -31,22 +35,22 @@ class Graphe:
         self.ajouter_sommet(s1)
         self.ajouter_sommet(s2)
         if self.oriente:            
-            self.liste[s1].append(s2)
+            self.adjacent[s1].append(s2)
         else:
-            self.liste[s1].append(s2)
-            self.liste[s2].append(s1)
+            self.adjacent[s1].append(s2)
+            self.adjacent[s2].append(s1)
         
     def supprimer_adjacent(self,s1,s2):    
         if self.oriente:
-            self.liste[s1].remove(s2)
+            self.adjacent[s1].remove(s2)
         else:
-            self.liste[s1].remove(s2)
-            self.liste[s2].remove(s1)
+            self.adjacent[s1].remove(s2)
+            self.adjacent[s2].remove(s1)
 
     def arcs(self):
         arcs_graphe = []
-        for s1 in self.liste.keys():
-            for s2 in self.liste[s1]:
+        for s1 in self.adjacent.keys():
+            for s2 in self.adjacent[s1]:
                 if self.oriente:
                     if (s1,s2) not in arcs_graphe:
                         arcs_graphe.append((s1,s2))
@@ -55,13 +59,22 @@ class Graphe:
                         arcs_graphe.append((s1,s2))
         return arcs_graphe
             
-            
-    def matrice(self):
-        m = [[0]*len(self.liste) for i in range(len(self.liste))]
-        sommets = list(self.liste.keys())
+    def liste_adjacent(self):
+        sommets = list(self.adjacent.keys())
+        adj = [[] for i in range(len(sommets))]
         for s in sommets:
             i = sommets.index(s)
-            for s_adj in self.liste[s]:
+            for s_adj in self.adjacent[s]:
+                j = sommets.index(s_adj)
+                adj[i].append(j)
+        return adj
+
+    def matrice(self):
+        m = [[0]*len(self.adjacent) for i in range(len(self.adjacent))]
+        sommets = list(self.adjacent.keys())
+        for s in sommets:
+            i = sommets.index(s)
+            for s_adj in self.adjacent[s]:
                 j = sommets.index(s_adj)
                 m[i][j] = 1
         return m
@@ -72,7 +85,7 @@ class Graphe:
         else:
             dot=Graph(format=format)
         # on crée les noeuds pour chaque sommet
-        for s in self.liste.keys():
+        for s in self.adjacent.keys():
             dot.node(str(s))
         # on crée les arcs entre chaque sommet
         arcs = self.arcs()
@@ -88,7 +101,8 @@ if __name__=='__main__':
     G.ajouter_adjacent('A','E')
     d=G.afficher()
     print(d)
-    #d.view()
+    adj = G.liste_adjacent()
+    print(adj)
 
     H={'A':['B','C'],\
     'B':['C'],\
@@ -96,9 +110,11 @@ if __name__=='__main__':
     'D':['E'],\
     'E':['A','B']}
     G=Graphe(oriente=True)
-    G.liste = H
+    G.adjacent = H
     M = G.matrice()
     print(M)
+    adj = G.liste_adjacent()
+    print(adj)
     d = G.afficher()
     d.view()
     
