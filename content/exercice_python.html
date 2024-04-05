@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exercice en Python &#8212; NSI</title>
+    <title>exercices en Python &#8212; NSI</title>
   
   
   
@@ -152,7 +152,7 @@
 <li class="toctree-l1"><a class="reference internal" href="activite.html">Représentation des graphes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cours.html">Les graphes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercice.html">Exercice sur les graphes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercice en Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">exercices en Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tp_parcours.html">TP : Parcourir un graphe</a></li>
 </ul>
 
@@ -292,7 +292,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercice en Python</h1>
+    <h1>exercices en Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -317,8 +317,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="exercice-en-python">
-<h1>Exercice en Python<a class="headerlink" href="#exercice-en-python" title="Link to this heading">#</a></h1>
+  <section id="exercices-en-python">
+<h1>exercices en Python<a class="headerlink" href="#exercices-en-python" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Les exercices suivants proposent une implémentation en Python d’une interface de Graphe. Cette implémentation et l’interface proposée ne sont que des cas possibles parmi d’autres.</p>
@@ -463,21 +463,21 @@ document.write(`
 <img alt="../_images/graphe_oriente_ex_4.png" src="../_images/graphe_oriente_ex_4.png" />
 </figure>
 <ol class="arabic">
-<li><p>Donner pour le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> les sommets adjacents de chaque sommet et sa matrice d’adjacence.</p></li>
-<li><p>Les sommets du graphe sont rassemblés dans une liste <code class="docutils literal notranslate"><span class="pre">sommets=['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D',</span> <span class="pre">'E']</span></code>. Le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> est associé à l’indice <code class="docutils literal notranslate"><span class="pre">0</span></code>, le sommet <code class="docutils literal notranslate"><span class="pre">B</span></code> à l’indice <code class="docutils literal notranslate"><span class="pre">1</span></code>, etc.</p>
-<p>Les sommets adjacents d’un sommet du graphe sont regroupés dans la liste <code class="docutils literal notranslate"><span class="pre">liste_adj</span></code> qui contient donc en indice <code class="docutils literal notranslate"><span class="pre">0</span></code> les sommets adjacents de <code class="docutils literal notranslate"><span class="pre">A</span></code>, à l’indice <code class="docutils literal notranslate"><span class="pre">1</span></code> les sommets adjacents de <code class="docutils literal notranslate"><span class="pre">B</span></code>, etc.</p>
-<p>Écrire le contenu de la liste <code class="docutils literal notranslate"><span class="pre">liste_adj</span></code> du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+<li><p>Donner pour le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> les sommets adjacents de chaque sommet.</p></li>
+<li><p>Les sommets du graphe sont rassemblés dans une liste <code class="docutils literal notranslate"><span class="pre">etiquettes=['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D',</span> <span class="pre">'E']</span></code>. Le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> est associé à l’indice <code class="docutils literal notranslate"><span class="pre">0</span></code>, le sommet <code class="docutils literal notranslate"><span class="pre">B</span></code> à l’indice <code class="docutils literal notranslate"><span class="pre">1</span></code>, etc.</p>
+<p>Les sommets adjacents d’un sommet du graphe sont regroupés dans la liste <code class="docutils literal notranslate"><span class="pre">adj</span></code> qui contient donc en indice <code class="docutils literal notranslate"><span class="pre">0</span></code> les sommets adjacents de <code class="docutils literal notranslate"><span class="pre">A</span></code>, à l’indice <code class="docutils literal notranslate"><span class="pre">1</span></code> les sommets adjacents de <code class="docutils literal notranslate"><span class="pre">B</span></code>, etc.</p>
+<p>Compléter le contenu de la liste <code class="docutils literal notranslate"><span class="pre">adj</span></code> du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> donnée ci-après: <code class="docutils literal notranslate"><span class="pre">adj</span> <span class="pre">=</span> <span class="pre">[[1,4],...]</span></code></p>
 </li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">predecesseurs</span></code> prend en paramètre un graphe défini par la liste d’adjacence et un sommet <code class="docutils literal notranslate"><span class="pre">s</span></code> du graphe. Cette fonction renvoie la liste de tous les sommets dont <code class="docutils literal notranslate"><span class="pre">s</span></code> est un sommet adjacent.</p>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">predecesseurs</span></code> prend en paramètre un graphe défini par la liste d’adjacence <code class="docutils literal notranslate"><span class="pre">adj</span></code> et un sommet <code class="docutils literal notranslate"><span class="pre">s</span></code> du graphe. Cette fonction renvoie la liste de tous les sommets dont <code class="docutils literal notranslate"><span class="pre">s</span></code> est un sommet adjacent.</p>
 <p>Par exemple, pour le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> ci-dessus, l’appel <code class="docutils literal notranslate"><span class="pre">predecesseurs(G,'D')</span></code> renvoie la liste de sommets <code class="docutils literal notranslate"><span class="pre">['B','C','E']</span></code>.</p>
 <p>Écrire le code de la fonction <code class="docutils literal notranslate"><span class="pre">predecesseurs</span></code>.</p>
 </li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">liste_matrice</span></code> prend en paramètre une liste d’adjacence représentant le graphe. La fonction renvoie la matrice d’adjacence associée au graphe.</p>
-<p>Par exemple, la liste d’adjacence associée au graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> renvoie la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code> définie par la liste suivante:</p>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>M = [[0, 1, 0, 0, 1], [0, 0, 1, 1, 0], [1, 0, 0, 1, 0], [0, 0, 0, 0, 1], [0, 0, 0, 1, 0]]
-</pre></div>
-</div>
-<p>Écrire le code de la fonction <code class="docutils literal notranslate"><span class="pre">liste_matrice</span></code>.</p>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">liste_adjacent</span></code> transforme un dictionnaire qui contient chaque sommet avec ces sommets adjacents d’un graphe en une liste des sommets adjacents comme définie ci-dessus. La fonction prend en paramètre un dictionnaire et renvoie une liste.</p>
+<ol class="loweralpha simple">
+<li><p>Écrire le code de la fonction <code class="docutils literal notranslate"><span class="pre">liste_adjacent</span></code>.</p></li>
+<li><p>Vérifier cette fonction avec le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> de cet exercice.</p></li>
+<li><p>Ajouter cette fonction en tant que méthode de la classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> créée dans l’exercice précédent.</p></li>
+</ol>
 </li>
 </ol>
 </section>
