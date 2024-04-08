@@ -71,8 +71,6 @@ Le **parcours en largeur** d'un graphe a pour but de donner le plus court chemin
 
 On se donne un sommet de départ puis on détermine tous les sommets distants de 1, puis tous les sommets distants de 2, etc, jusqu’à avoir visité tous les sommets du graphe relié au sommet de départ.
 
-On peut utiliser un dictionnaire pour mémoriser tous les sommets et les distances les séparant du sommet de départ. Le sommet de départ a une distance de 0.
-
 On donne ci-après l'algorithme de parcours en largeur d'un graphe:
 
 .. admonition:: Algorithme
@@ -80,54 +78,23 @@ On donne ci-après l'algorithme de parcours en largeur d'un graphe:
 
         .. code:: text
             
-            VARIABLES:
-            --------------------------------------------------------------------
-            G désigne le graphe par sa liste d'adjacence
-            S désigne un sommet du graphe
-            V désigne un sommet adjacent à S
+            vus = {S:0}
+            f est une file
+            on enfile le sommet S et la distance 0
 
-            distances est un dictionnaire qui contient les sommets et les distances au départ
-            courant est une liste qui contient les sommets à visiter
-            suivant est une liste qui contient des sommets adjacents non visités
-            --------------------------------------------------------------------
-            distances = {S:0}
-            courant contient le sommet de départ
-            suivant est vide
-
-            Tant que courant n'est pas vide:
-                on prend un sommet S dans la liste suivant
-                    Pour chaque sommet V adjacent à S:
-                        si V n'est pas dans le dictionnaire distances:
-                            on l'ajoute à la liste suivant
-                            on l'ajoute au dictionnaire avec la distance de S augmentée de 1
-                        si la liste courant est vide:
-                            courant récupère les valeurs de la liste suivant
-                            on vide suivant.
+            Tant que la file f n'est pas vide:
+                on defile f dans la variable S
+                Pour chaque sommet V adjacent à S:
+                    si V n'est pas dans le dictionnaire vus:
+                        on l'ajoute au dictionnaire vus en augmentant la distance de 1
+                        on enfile ce voisin dans la file f
             
-            On renvoie le dictionnaire distances
+            On renvoie le dictionnaire vus
 
 #.  Quel est le dictionnaire des distances au sommet ``A`` du graphe ``G`` ? Quel est ce dictionnaire si le départ est le sommet ``E`` ?
 #.  On parcourt en largeur le graphe ``G`` en partant de ``A``.
 
-    Donner les différents états des variables ``S``, ``V``, ``courant``, ``suivant`` et ``distances`` à chaque itération de la boucle **tant que**. On pourra présenter les valeurs dans un tableau comme ci-dessous.
-
-    .. table::
-        :class: bordure border-style-solid border-width-1 border-color-gray
-
-        +---------+-----+-----+---+
-        |variables|init.|1    |...|
-        +---------+-----+-----+---+
-        |courant  |[A]  |[]   |...|
-        +---------+-----+-----+---+
-        |suivant  |[]   |[B,C]|...|
-        +---------+-----+-----+---+
-        |S        |     |A    |...|
-        +---------+-----+-----+---+
-        |V        |     |B,C  |...|
-        +---------+-----+-----+---+
-        |distances|A:0  |B:1, |...|
-        |         |     |C:1  |   |
-        +---------+-----+-----+---+
+    Donner les différents états des variables ``S``, ``V``, ``f`` et ``vus`` à chaque itération de la boucle **tant que**. On pourra présenter les valeurs dans un tableau comme ci-dessous.
 
 #.  La fonction Python ``parcours_largeur`` prend en paramètre un graphe et un sommet de départ du graphe et renvoie le dictionnaire contenant les sommets du graphe reliés au sommet de départ avec chaque distance.
 
