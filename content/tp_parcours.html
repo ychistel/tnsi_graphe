@@ -375,36 +375,22 @@ Donner les différents états de la pile <code class="docutils literal notransla
 <h2>Parcours en largeur<a class="headerlink" href="#parcours-en-largeur" title="Link to this heading">#</a></h2>
 <p>Le <strong>parcours en largeur</strong> d’un graphe a pour but de donner le plus court chemin entre deux sommets du graphe s’il existe.</p>
 <p>On se donne un sommet de départ puis on détermine tous les sommets distants de 1, puis tous les sommets distants de 2, etc, jusqu’à avoir visité tous les sommets du graphe relié au sommet de départ.</p>
-<p>On peut utiliser un dictionnaire pour mémoriser tous les sommets et les distances les séparant du sommet de départ. Le sommet de départ a une distance de 0.</p>
 <p>On donne ci-après l’algorithme de parcours en largeur d’un graphe:</p>
 <div class="code admonition">
 <p class="admonition-title">Algorithme</p>
 <blockquote>
-<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>VARIABLES:
---------------------------------------------------------------------
-G désigne le graphe par sa liste d&#39;adjacence
-S désigne un sommet du graphe
-V désigne un sommet adjacent à S
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>vus = {S:0}
+f est une file
+on enfile le sommet S et la distance 0
 
-distances est un dictionnaire qui contient les sommets et les distances au départ
-courant est une liste qui contient les sommets à visiter
-suivant est une liste qui contient des sommets adjacents non visités
---------------------------------------------------------------------
-distances = {S:0}
-courant contient le sommet de départ
-suivant est vide
+Tant que la file f n&#39;est pas vide:
+    on defile f dans la variable S
+    Pour chaque sommet V adjacent à S:
+        si V n&#39;est pas dans le dictionnaire vus:
+            on l&#39;ajoute au dictionnaire vus en augmentant la distance de 1
+            on enfile ce voisin dans la file f
 
-Tant que courant n&#39;est pas vide:
-    on prend un sommet S dans la liste suivant
-        Pour chaque sommet V adjacent à S:
-            si V n&#39;est pas dans le dictionnaire distances:
-                on l&#39;ajoute à la liste suivant
-                on l&#39;ajoute au dictionnaire avec la distance de S augmentée de 1
-            si la liste courant est vide:
-                courant récupère les valeurs de la liste suivant
-                on vide suivant.
-
-On renvoie le dictionnaire distances
+On renvoie le dictionnaire vus
 </pre></div>
 </div>
 </div></blockquote>
@@ -412,42 +398,7 @@ On renvoie le dictionnaire distances
 <ol class="arabic">
 <li><p>Quel est le dictionnaire des distances au sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> ? Quel est ce dictionnaire si le départ est le sommet <code class="docutils literal notranslate"><span class="pre">E</span></code> ?</p></li>
 <li><p>On parcourt en largeur le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> en partant de <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
-<p>Donner les différents états des variables <code class="docutils literal notranslate"><span class="pre">S</span></code>, <code class="docutils literal notranslate"><span class="pre">V</span></code>, <code class="docutils literal notranslate"><span class="pre">courant</span></code>, <code class="docutils literal notranslate"><span class="pre">suivant</span></code> et <code class="docutils literal notranslate"><span class="pre">distances</span></code> à chaque itération de la boucle <strong>tant que</strong>. On pourra présenter les valeurs dans un tableau comme ci-dessous.</p>
-<table class="bordure border-style-solid border-width-1 border-color-gray table">
-<tbody>
-<tr class="row-odd"><td><p>variables</p></td>
-<td><p>init.</p></td>
-<td><p>1</p></td>
-<td><p>…</p></td>
-</tr>
-<tr class="row-even"><td><p>courant</p></td>
-<td><p>[A]</p></td>
-<td><p>[]</p></td>
-<td><p>…</p></td>
-</tr>
-<tr class="row-odd"><td><p>suivant</p></td>
-<td><p>[]</p></td>
-<td><p>[B,C]</p></td>
-<td><p>…</p></td>
-</tr>
-<tr class="row-even"><td><p>S</p></td>
-<td></td>
-<td><p>A</p></td>
-<td><p>…</p></td>
-</tr>
-<tr class="row-odd"><td><p>V</p></td>
-<td></td>
-<td><p>B,C</p></td>
-<td><p>…</p></td>
-</tr>
-<tr class="row-even"><td><p>distances</p></td>
-<td><p>A:0</p></td>
-<td><p>B:1,
-C:1</p></td>
-<td><p>…</p></td>
-</tr>
-</tbody>
-</table>
+<p>Donner les différents états des variables <code class="docutils literal notranslate"><span class="pre">S</span></code>, <code class="docutils literal notranslate"><span class="pre">V</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code> et <code class="docutils literal notranslate"><span class="pre">vus</span></code> à chaque itération de la boucle <strong>tant que</strong>. On pourra présenter les valeurs dans un tableau comme ci-dessous.</p>
 </li>
 <li><p>La fonction Python <code class="docutils literal notranslate"><span class="pre">parcours_largeur</span></code> prend en paramètre un graphe et un sommet de départ du graphe et renvoie le dictionnaire contenant les sommets du graphe reliés au sommet de départ avec chaque distance.</p>
 <p>Écrire le code de cette fonction en suivant l’algorithme ci-dessus.</p>
