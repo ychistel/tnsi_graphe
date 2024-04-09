@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exercice sur les graphes &#8212; NSI</title>
+    <title>Exercices d’approfondissement &#8212; NSI</title>
   
   
   
@@ -42,13 +42,11 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script src="../_static/translations.js?v=d99ca74e"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/exercice';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/exercices_graphes';</script>
     <script src="../_static/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="exercices en Python" href="exercice_python.html" />
-    <link rel="prev" title="Les graphes" href="cours.html" />
+    <link rel="prev" title="TP : Parcourir un graphe" href="tp_parcours.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -152,10 +150,10 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="activite.html">Représentation des graphes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cours.html">Les graphes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercice sur les graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice.html">Exercice sur les graphes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercice_python.html">exercices en Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tp_parcours.html">TP : Parcourir un graphe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exercices_graphes.html">Exercices d’approfondissement</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercices d’approfondissement</a></li>
 </ul>
 
     </div>
@@ -210,7 +208,7 @@
       
       
       
-      <li><a href="../_sources/content/exercice.rst" target="_blank"
+      <li><a href="../_sources/content/exercices_graphes.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -294,7 +292,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercice sur les graphes</h1>
+    <h1>Exercices d’approfondissement</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -306,8 +304,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
             </nav>
         </div>
@@ -319,93 +315,35 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="exercice-sur-les-graphes">
-<h1>Exercice sur les graphes<a class="headerlink" href="#exercice-sur-les-graphes" title="Link to this heading">#</a></h1>
+  <section id="exercices-d-approfondissement">
+<h1>Exercices d’approfondissement<a class="headerlink" href="#exercices-d-approfondissement" title="Link to this heading">#</a></h1>
 <section id="exercice-1">
 <h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Link to this heading">#</a></h2>
-<p>On donne ci-dessous un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>:</p>
+<p>On donne le graphe représenté par la figure suivante:</p>
 <figure class="align-center">
-<img alt="../_images/graphe_4.svg" src="../_images/graphe_4.svg" /></figure>
+<img alt="../_images/graphe_3.png" src="../_images/graphe_3.png" />
+</figure>
 <ol class="arabic simple">
-<li><p>Donner la liste d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>Donner la matrice d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>On oriente le graphe en respectant l’ordre alphabétique. Par exemple, le sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> est relié au sommet <code class="docutils literal notranslate"><span class="pre">B</span></code> par un arc orienté de <code class="docutils literal notranslate"><span class="pre">A</span></code> vers <code class="docutils literal notranslate"><span class="pre">B</span></code> car A est avant B dans l’ordre alphabétique.</p>
-<ol class="loweralpha simple">
-<li><p>Redessiner le graphe orienté.</p></li>
-<li><p>Redonner la liste d’adjacence et la matrice d’adjacence du graphe orienté si elles sont différentes de celles du graphe non orienté.</p></li>
-</ol>
-</li>
+<li><p>Donner le parcours en profondeur du graphe en partant du sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> par exemple.</p></li>
+<li><p>Donner le parcours en largeur du graphe en partant du sommet <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p></li>
+<li><p>Donner la liste d’adjacence de ce graphe. On pourra étiqueter les sommets dans l’ordre alphabétique en partant de 0.</p></li>
+<li><p>Donner le dictionnaire d’adjacence du graphe G.</p></li>
+<li><p>Verifier vos différentes réponses en utilisant les fonctions écrites en Python.</p></li>
 </ol>
 </section>
 <section id="exercice-2">
 <h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Link to this heading">#</a></h2>
-<p>On donne la liste d’adjacence d’un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> non orienté:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;E&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;F&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Représenter schématiquement le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>Donner la matrice d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-</ol>
-</section>
-<section id="exercice-3">
-<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Link to this heading">#</a></h2>
-<p>On donne la matrice d’adjacence d’un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> non orienté:</p>
-<div class="center docutils container">
-<p><span class="math notranslate nohighlight">\(M=\begin{pmatrix}
-0 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
-1 &amp; 0 &amp; 1 &amp; 1 &amp; 0\\
-1 &amp; 1 &amp; 0 &amp; 1 &amp; 1\\
-0 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 1\\
-\end{pmatrix}\)</span></p>
-</div>
-<ol class="arabic simple">
-<li><p>Représenter schématiquement ce graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-<li><p>Donner la liste d’adjacence du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
-</ol>
-</section>
-<section id="exercice-4">
-<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Link to this heading">#</a></h2>
-<p>Un groupe d’amis organise une randonnée dans les Alpes. On a représenté par le graphe ci-dessous les sommets <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">D</span></code>, <code class="docutils literal notranslate"><span class="pre">F</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> et <code class="docutils literal notranslate"><span class="pre">N</span></code> par lesquels ils peuvent choisir de passer. Une arête (arc) entre deux sommets coïncide avec l’existence d’un chemin de randonnée entre les deux sommets.</p>
+<p>On donne le graphe représenté par la figure suivante:</p>
 <figure class="align-center">
-<img alt="../_images/graphe_randonnee.png" src="../_images/graphe_randonnee.png" />
+<img alt="../_images/graphe_4.png" src="../_images/graphe_4.png" />
 </figure>
 <ol class="arabic simple">
-<li><p>On appelle <strong>degré</strong> d’un sommet le nombre de sommets qui lui sont adjacents. Compléter le tableau avec les degrés de chaque sommet.</p></li>
-</ol>
-<table class="bordure border-style-solid border-width-1 table">
-<tbody>
-<tr class="row-odd"><td><p>sommets</p></td>
-<td><p>A</p></td>
-<td><p>C</p></td>
-<td><p>D</p></td>
-<td><p>F</p></td>
-<td><p>T</p></td>
-<td><p>N</p></td>
-</tr>
-<tr class="row-even"><td><p>degré sommet</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ol class="arabic">
-<li><p>On dit qu’un graphe est <strong>connexe</strong> lorsque 2 sommets quelconques sont reliés par un chemin. Le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> est-il connexe ?</p></li>
-<li><p>Le mathématicien <strong>Euler</strong> a montré qu’il existe un chemin reliant tous les sommets en passant une et une seule fois par toutes les arêtes du graphe lorsque le graphe contient exactement 2 sommets de degré impair. Un tel chemin est appelé <strong>chaine eulérienne</strong>.</p>
-<p>Est-il envisageable de trouver une chaine eulérienne de randonnée passant par tous les arcs une et une seule fois? Donner un tel chemin s’il existe.</p>
-</li>
+<li><p>Donner le parcours en profondeur du graphe en partant du sommet <code class="docutils literal notranslate"><span class="pre">A</span></code> par exemple.</p></li>
+<li><p>Donner le parcours en largeur du graphe en partant du sommet <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p></li>
+<li><p>Donner le parcours en largeur du graphe en partant du sommet <code class="docutils literal notranslate"><span class="pre">E</span></code>.</p></li>
+<li><p>Donner la liste d’adjacence de ce graphe. On pourra étiqueter les sommets dans l’ordre alphabétique en partant de 0.</p></li>
+<li><p>Donner le dictionnaire d’adjacence du graphe G.</p></li>
+<li><p>Verifier vos différentes réponses en utilisant les fonctions écrites en Python.</p></li>
 </ol>
 </section>
 </section>
@@ -422,22 +360,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cours.html"
+       href="tp_parcours.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Les graphes</p>
+        <p class="prev-next-title">TP : Parcourir un graphe</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="exercice_python.html"
-       title="page suivante">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">exercices en Python</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -457,8 +386,6 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
   </nav></div>
 
