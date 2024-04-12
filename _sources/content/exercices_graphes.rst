@@ -177,7 +177,7 @@ On représente les couleurs par des nombres: 0 pour le rouge, 1 pour le vert, 2 
 #.  Après avoir complété vos fonctions, colorier le graphe ``G`` et donner le nombre de couleurs utilisées.
 #.  On souhaite colorier une carte des 12 regions françaises de la métropole. Chaque région doit avoir une couleur différente des régions qui ont une frontière commune avec elle. 
 
-    a.  Touver sur le web une carte des 12 régions de la métropole et la représentée par un graphe.
+    a.  Touver sur le web une carte des 12 régions de la métropole et la représenter par un graphe.
     b.  Proposer un coloriage des régions et donner le nombre de couleurs nécessaires.
 
     .. raw:: html
