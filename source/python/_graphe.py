@@ -79,6 +79,28 @@ class Graphe:
                 m[i][j] = 1
         return m
     
+def afficher(graphe,dico_couleur={}):
+    couleurs = ['red','green','blue','orange','purple','black']
+    dot=Graph(format='png')
+    # on crée les sommets du graphe
+    for s in graphe.adjacent.keys():
+        if dico_couleur != {}:
+            dot.node(s,color=couleurs[dico_couleur[s]])
+        else:
+            dot.node(s,color='black')
+    # on crée la liste des arcs entre les sommets
+    arcs = []
+    for s in graphe.adjacent.keys():
+        for s_adj in graphe.adjacent[s]:
+            if (s,s_adj) not in arcs and (s_adj,s) not in arcs:
+                arcs.append((s,s_adj))
+    # on ajoute les arcs au graphe
+    for arc in arcs:
+        s1,s2 = arc
+        dot.edge(s1,s2)
+    return dot
+
+"""
     def afficher(self,format='svg'):
         if self.oriente:
             dot=Digraph()
@@ -92,6 +114,7 @@ class Graphe:
         for arc in arcs:
             dot.edge(str(arc[0]),str(arc[1]))
         return dot
+"""
 
 if __name__=='__main__':
     G=Graphe()

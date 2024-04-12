@@ -1,13 +1,47 @@
 
-<h4>Carte des régions françaises</h4>
-<p>Cliquez sur une région pour la colorier :</p>
+<style>
+   #coloriage {
+      padding:10px;
+      text-align: center;
+      border:solid 1px rgb(35, 35, 35);
+      width:600px;
+      margin: 0 auto;;
+   }
+   #coloriage ul{
+      list-style: none;
+   }
+   #coloriage ul li{
+      display:inline-block;
+      margin: 0 6px;
+      width:40px;
+      height:60px;
+      border:none;
+      vertical-align:middle;
+   }
+   #coloriage ul li.on{
+      width:48px;
+      height:68px;
+      border:solid 1px rgb(120,120,120);
+   }
+   #map{
+      width: 100%; 
+      height: 100%;
+   }
+</style>
 
-<div>
-   <label for="colorPicker">Choisir une couleur :</label>
-   <input type="color" id="colorPicker">
-</div>
+<div id="coloriage">
+   <p>Choisissez une couleur puis cliquez sur les régions pour les colorier.</p>
+   <ul>
+      <li id="couleur1"></li>
+      <li id="couleur2"></li>
+      <li id="couleur3"></li>
+      <li id="couleur4"></li>
+      <li id="couleur5"></li>
+      <li id="couleur6"></li>
+   </ul>
 
-<svg id="map" viewBox="-10 -10 300 300" >
+
+<svg id="map" viewBox="0 0 270 270" >
    <!-- Ici viendra le code SVG des régions -->
    <path id="path826"
    d="m 60.845474,49.388146 c 4.86802,3.94702 8.89973,1.51897 14.04575,1.74704 -3.08413,3.53314 -0.37432,7.45964 1.55404,10.85354 9.53442,0.34364 15.56464,5.81537 30.344466,-1.51722 -2.09348,-0.71856 -4.57622,-0.87487 -5.462,-3.33789 -0.34376,-3.47936 1.29308,-3.63706 2.99921,-5.81751 7.95647,-5.0645 15.83692,-4.36624 23.40047,-10.26506 3.31394,2.46349 6.56078,5.02762 8.19301,10.01368 -4.60039,5.48302 -0.59091,10.72688 -0.60687,16.08257 -5.99582,12.10947 -12.612,15.16189 -19.31319,16.97291 1.96233,2.50497 3.1077,5.11887 2.92716,7.90955 -3.08605,1.86174 -5.60661,3.82765 -3.33789,6.67579 -8.50811,-5.70062 -11.04774,-13.20986 -44.909816,-11.22746 -3.23674,-12.34008 -2.60712,-20.73747 -8.53011,-35.57192 z"
@@ -47,10 +81,33 @@
    style="fill:#ffffff;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
 </svg>
 
+</div>
+
 <script>
    document.addEventListener("DOMContentLoaded", function() {
       const regions = document.querySelectorAll("#map path");
-      const colorPicker = document.getElementById("colorPicker");
+      const couleurs = document.querySelectorAll("#coloriage ul li");
+      const choix = ['rgb(255,0,0)','rgb(0,255,0)','rgb(0,0,255)','rgb(255,255,0)','rgb(255,0,255)','rgb(0,255,255)'];
+      //console.log(couleurs);
+      let selectCouleur = 'rgb(255,255,255)';
+      let elementOn = '';
+
+      for(var i=0;i<6;i++){
+         couleurs[i].style.backgroundColor = choix[i];
+      }
+      
+      couleurs.forEach(couleur => {
+            couleur.addEventListener("click", function(){
+               console.log(couleurs);
+               if (elementOn != '') {
+                  document.getElementById(elementOn).classList.remove("on");
+               } 
+               selectCouleur = couleur.style.backgroundColor;
+               couleur.classList.add("on");
+               elementOn = couleur.id;
+
+            });
+         });
 
       regions.forEach(region => {
          // Initialisation de la couleur de remplissage
@@ -59,7 +116,7 @@
          // Gestion du clic sur une région
          region.addEventListener("click", function() {
                // Récupérer la couleur choisie
-               const selectedColor = colorPicker.value;
+               const selectedColor = selectCouleur;
                // Appliquer la couleur à la région cliquée
                region.style.fill = selectedColor;
          });
