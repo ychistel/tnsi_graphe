@@ -55,3 +55,5 @@ div.code > p.admonition-title::after{color:#404140;content: "\f121";}
 div.propriete.admonition{border-color:#404140;}
 div.propriete > p.admonition-title{background-color:#d4d4d4;color:#404140;}
 div.propriete > p.admonition-title::after{color:#404140;content: "\f013";}
+
+#map{width: 600px; height: 600px;border:solid 1px rgb(35, 35, 35);}
